@@ -3,6 +3,8 @@ import './styles.css'
 import Header from './components/Header';
 import MoviesGrid from './components/MoviesGrid';
 import Footer from './components/Footer';
+import Watchlist from './components/Watchlist';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -10,7 +12,25 @@ function App() {
 
       <div className="container">
         <Header></Header>
-        <MoviesGrid></MoviesGrid>
+
+        <Router>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/watchlist">Watchlist</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Routes>
+            <Route path='/' element={<MoviesGrid />}></Route>
+            <Route path='/watchlist' element={<Watchlist />}></Route>
+
+          </Routes>
+        </Router>
       </div>
 
 
