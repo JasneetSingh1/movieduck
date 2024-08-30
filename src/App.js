@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 function App() {
 
   const [movies, setMovies] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
 
   useEffect(() => {
@@ -18,6 +19,12 @@ function App() {
       .then(data => setMovies(data))
 
   }, []);
+
+  const toggleWatchlist = (movieId) => {
+    setWatchlist((prev) =>
+      prev.includes(movieId) ? prev.filter((id) => id !== movieId) : [...prev, movieId]
+    );
+  };
 
   return (
     <div className="App">
