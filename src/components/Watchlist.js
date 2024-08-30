@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles.css';
 
-export default function Watchlist() {
+export default function Watchlist({movies, Watchlist, toggleWatchlist}) {
     return (
 
         <div>
